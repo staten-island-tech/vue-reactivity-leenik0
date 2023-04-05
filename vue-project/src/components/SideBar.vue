@@ -6,7 +6,12 @@ import ItemCarts from "./ItemCarts.vue";
 
 <template>
   <div id="box">
-    <button id="openbtn" @click="openbar">&#9776;</button>
+    <div v-if="cart.length === 0">
+      <button id="openbtn" @click="openbar">&#9776;</button>
+    </div>
+    <div v-else>
+      <button id="openbtn" @click="openbar">{{ cart.length }}&#9776;</button>
+    </div>
   </div>
   <div id="sidebar">
     <button id="closebtn" @click="closebar">&times;</button>
@@ -20,6 +25,7 @@ import ItemCarts from "./ItemCarts.vue";
         :key="carts.name"
         :item="carts.name"
         :cost="carts.cost"
+        :pic="carts.photo"
       ></ItemCarts>
       <button @click="checkout">Check Out</button>
     </div>

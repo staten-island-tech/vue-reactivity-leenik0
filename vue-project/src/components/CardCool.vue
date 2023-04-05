@@ -8,7 +8,7 @@ import { total } from "./SideCart.js";
     <h2>{{ title }}</h2>
     <h3>${{ price }}.00</h3>
     <p>Released {{ date }}</p>
-    <img :src="getImage" alt="" />
+    <img :src="getImage" alt="Album Cover" />
     <button @click="addit" id="buy" :class="btntheme">Add To Cart</button>
   </div>
 </template>
@@ -33,6 +33,7 @@ export default {
       cart.push({
         name: this.title,
         cost: this.price,
+        photo: this.img,
       });
       total.value = total.value + 38;
     },
